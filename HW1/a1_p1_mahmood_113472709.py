@@ -72,9 +72,6 @@ def wordTokenizer(sent):
 # Checkpoint 1.2
 # def spacelessBPELearn(docs, max_vocabulary=1000):
 
-#     #input: docs, a list of strings to be used as the corpus for learning the BPE vocabulary
-
-#     #output: final_vocabulary, a set of all members of the learned vocabulary
 
 #    return final_vocabulary
 
@@ -88,17 +85,12 @@ def wordTokenizer(sent):
 
 #    return words
 
-def spacelessBPELearn(docs, max_vocabulary: int = 1000):
-    """
-    Learn a BytePair Encoding vocabulary that does not include whitespace.
+def spacelessBPELearn(docs, max_vocabulary=1000):
     
-    Args:
-        docs: A list of strings to be used as the corpus for learning the BPE vocabulary
-        max_vocabulary: The maximum size of the vocabulary
-    
-    Returns:
-        A set of all members of the learned vocabulary
-    """
+    #input: docs, a list of strings to be used as the corpus for learning the BPE vocabulary
+
+    #output: final_vocabulary, a set of all members of the learned vocabulary
+
     # Start with vocabulary of all ascii letters as words
     vocab = set(list("0123456789"))  # 0-9
     vocab.update(chr(i) for i in range(97, 123))  # a-z
