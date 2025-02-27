@@ -12,7 +12,7 @@ def wordTokenizer(sent):
     tokens = [] 
 
     # Check to retain abbreviations of capital letters e.g U.S.A.
-    abbrevs = re.findall(r'([A-Z]\.)+(([A-Z]\.)+)?', sent)
+    abbrevs = re.findall(r'([A-Z].)+', sent)
     for i, abbr in enumerate(abbrevs):
         sent = sent.replace(abbr, f"ABBR{i}",1)
 
