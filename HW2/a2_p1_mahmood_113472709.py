@@ -16,7 +16,7 @@ import matplotlib
 # Checkpoint 1.2
 class TrigramLM:
     def __init__(self, data):
-        self.otalTokens=0
+        self.totalTokens=0
         self.vocab=set()
 
         self.unigramCounts=collections.defaultdict(int)
@@ -24,8 +24,35 @@ class TrigramLM:
         self.trigramCounts=collections.defaultdict(int)
     
     def train(self, datasets):
-        pass
+        # Assume dataset is list of tokensf of all songs
+
+        # Count unigrams, bigrams, and trigrams for all docs
+        for doc in datasets:
+            self.totalTokens += len(doc)
+
+            # Count unigrams
+            for i in range(len(doc)):
+                token = doc[i]
+                self.unigramCounts[token] += 1
+                self.vocab.add(token)
+            
+            # Count bigrams
+            for i in range(len(doc)-1):
+                bigram = (doc[i], doc[i+1])
+                self.bigramCounts[bigram] += 1
+
+            # Count trigrams
+            for i in range(len(doc)-2):
+                trigram = (doc[i], doc[i+1], doc[i+2])
+                self.trigramCounts[trigram] += 1
+            
     def nextProb(self, history_toks, next_toks):
+        probsList = []
+
+        # Handle OOV tokens
+        for i in range(len(history_toks)):
+            if history_toks[i] not in self.vocab:
+                history_toks[i] = "<OOV>"
         pass
 
 
