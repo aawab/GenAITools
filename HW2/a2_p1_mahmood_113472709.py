@@ -15,7 +15,7 @@ import matplotlib
 
 # Checkpoint 1.2
 class TrigramLM:
-    def __init__(self, data):
+    def __init__(self):
         self.totalTokens=0
         self.vocab=set()
 
@@ -53,9 +53,54 @@ class TrigramLM:
         for i in range(len(history_toks)):
             if history_toks[i] not in self.vocab:
                 history_toks[i] = "<OOV>"
-        pass
+        
+        # Work for size >2 of history_toks
+        if len(history_toks) >= 2:
+            h1 = history_toks[-1]
+            h2 = history_toks[-2]
+        # Work for size 1 of history_toks
+        elif len(history_toks) == 1:
+            h1 = history_toks[0]
+            h2 = "<s>"
+        # Work with no hisory_toks
+        else:
+            h1 = "<s>"
+            h2 = "<s>"
+        
+        V = len(self.vocab)
 
+        # Calculate the probability of next_toks given history_toks
+        for next_tok in next_toks:
+            if next_tok not in self.vocab:
+                next_tok = "<OOV>"
+            
+            # Calculate the probability
+            if len(history_toks) >= 2:
+                prob = (self.trigramCounts[(h2, h1, next_tok)] + 1) / (self.bigramCounts[(h2, h1)] + V)
+            else:
+                # If len(history_toks) <2 then use unigram, skip bigram
+                prob = (self.unigramCounts[next_tok] + 1) / (self.totalTokens + V)
+            probsList.append((next_tok,prob))
+        return probsList
 
+# Checkpoint 1.3
+def get_perplexity(probs):
+
+    #input: probs: a list containing probabilities of the target token for each index of input
+
+    #output: perplexity: a single float number
+
+    n = len(probs)
+    if n==0 :
+        return float('inf')
+    
+    # Calculate perplexity as inverse of geo mean over the probs
+    geoMean = 1
+    for prob in probs:
+        geoMean *= prob
+    perplexity = (1 / geoMean)**(1/n)
+
+    return perplexity
 
 if __name__ == "__main__":
 
@@ -86,3 +131,59 @@ if __name__ == "__main__":
     print(f"last: {lastRowTokens}")
 
     # Checkpoint 1.2
+    print("\nCheckpoint 1.2:")
+
+    # TODO:Q6. The transformer's tokenizer does not automatically add <s> and </s> before and after the document even if BOS and EOS tokens
+    #  are set, right? (Output at checkpoint 1.1 says that). In 1.2 we have to add them manually while passing to the tokenizer; is that 
+    # correct? (Confusion came to my mind from #55 where I saw: "(1379 > 1024)"; in my case, it is 1381 instead while passing BOS and EOS.)
+    # A6. Right, it doesn't automatically add it when you tokenize a sentence. In 1.2, yes, you need to add them manually when training 
+    # TrigramLM. Note - The checkpoint test cases in 1.2 and 1.3 can be processed as-is.
+
+    # Initialize the TrigramLM
+    trigramLM = TrigramLM()
+    trigramLM.train([gpt2Tokenizer.tokenize(row[2]) for row in data])
+
+    history_toks=['<s>', 'Are', 'Ġwe']
+    next_toks=['Ġout', 'Ġin', 'Ġto', 'Ġpretending', 'Ġonly']
+
+    probs = trigramLM.nextProb(history_toks, next_toks)
+    print(f"\nhistory: {history_toks}")
+    for w, prob in probs:
+        print(f"\t{w}: {prob:.5f}")
+
+    history_toks=['And', 'ĠI']
+    next_toks=['Ġwas', "'m", 'Ġstood', 'Ġknow', 'Ġscream', 'Ġpromise']
+
+    probs = trigramLM.nextProb(history_toks, next_toks)
+    print(f"\nhistory: {history_toks}")
+    for w, prob in probs:
+        print(f"\t{w}: {prob:.5f}")
+
+    # Checkpoint 1.3
+    print("\nCheckpoint 1.3:")
+
+    cases = [['And', 'Ġyou', 'Ġgotta', 'Ġlive', 'Ġwith', 'Ġthe', 'Ġbad', 'Ġblood', 'Ġnow'],
+        ['Sit', 'Ġquiet', 'Ġby', 'Ġmy', 'Ġside', 'Ġin', 'Ġthe', 'Ġshade'],
+        ['And', 'ĠI', "'m", 'Ġnot', 'Ġeven', 'Ġsorry', ',', 'Ġnights', 'Ġare', 'Ġso', 'Ġstar', 'ry'],
+        ['You', 'Ġmake', 'Ġme', 'Ġcraz', 'ier', ',', 'Ġcraz', 'ier', ',', 'Ġcraz', 'ier', ',', 'Ġoh'],
+        ['When', 'Ġtime', 'Ġstood', 'Ġstill', 'Ġand', 'ĠI', 'Ġhad', 'Ġyou']]
+    
+    for case in cases:
+        # Calculate token probs for seq
+        probs = []
+        history = []
+
+        for token in case:
+            prob = trigramLM.nextProb(history, [token])
+            probs.append(prob[0][1])
+
+            # Update history
+            history.append(token)
+            if len(history) > 2:
+                history = history[-2:]
+
+        perplexity = get_perplexity(probs)
+        print(f"Case: {' '.join(case)}")
+        print(f"Perplexity: {perplexity:.5f}")
+
+        # TODO: write/print 2-4 line observations about results, why similar or diff, one reason for it?
