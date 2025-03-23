@@ -91,3 +91,7 @@ if __name__ == "__main__":
     # Batching dataset w tensordataset and dataloader
     dataset  = TensorDataset(X, y)
     dataloader = DataLoader(dataset, batch_size=32, shuffle=True, drop_last=True)
+
+    # Checkpoint 2.1
+    print("\nCheckpoint 2.1:")
+    
