@@ -2,7 +2,8 @@ import random, os, sys, math, csv, re, collections, string
 import numpy as np
 import csv #(in-built and lightweight!)
 import torch
-from torch import nn, Tensor, DataLoader, TensorDataset
+from torch import nn, Tensor
+from torch.utils.data import DataLoader, TensorDataset
 import torch.nn.functional as F
 
 import transformers 
@@ -44,6 +45,52 @@ def chunk_tokens(tokens, start_token_id, end_token_id, pad_token_id, chunk_len=1
 
     return torch.tensor(chunks)
 
+# Checkpoint 2.2
+class RecurrentLM(nn.Module):
+
+    def __init__(self, vocab_size, embed_dim, rnn_hidden_dim):
+
+        super().__init__()
+
+        self.embed = nn.Embedding(vocab_size, embed_dim)  
+
+        self.gru = nn.GRU(embed_dim, rnn_hidden_dim, batch_first=True)
+
+        self.layer_norm = nn.LayerNorm(rnn_hidden_dim)
+
+        self.fc = nn.Linear(rnn_hidden_dim, vocab_size)
+
+    def forward(self, x):
+
+        #input: x: tensor of shape (batch_size, seq_len)
+
+        #output: logits: output of the model.
+
+        #        hidden_state: hidden state of GRU after processing x (sequence of tokens)
+
+        # Order of layers Embedding -> GRU-> Layer norm -> Fully-connected.
+        embedding = self.embed(x) 
+
+        output, hidden_state = self.gru(embedding)
+
+        normalized = self.layer_norm(output)
+
+        logits = self.fc(normalized)
+
+        return logits, hidden_state
+
+   #def stepwise_forward(self, x, prev_hidden_state):
+
+        #input: x: tensor of shape (seq_len)
+
+        #       hidden_state: hidden state of GRU after processing x (single token)
+
+        #<FILL IN at Part 2.4>
+
+        #return logits, hidden_state
+
+
+
 if __name__ == "__main__":
 
     # Initialize GPT2Tokenizer
@@ -63,21 +110,25 @@ if __name__ == "__main__":
         reader = csv.reader(f)
         data = list(reader)[1:-5]
 
+    # Var to hold checkpoint 2.1 song(ENchanted) chunked tensors
+    enchantedTensors = None
+
     # Prepare the dataset
     stackedChunks = []
 
     for _, row in enumerate(data):
-        lyrics = row['Lyrics']
+        lyrics = row[2]
 
         # Remove section markers([Bridge], etc.)
-        lyrics = re.sub('\n\[[\x20-\x7f]+\]', '', lyrics)
+        lyrics = re.sub(r'\n\[[\x20-\x7f]+\]', '', lyrics)
 
         # Tokenize
         tokenIDs = gpt2Tokenizer.encode(lyrics)
 
         # Chunk with helper function
         chunks = chunk_tokens(tokenIDs, gpt2Tokenizer.bos_token_id, gpt2Tokenizer.eos_token_id, gpt2Tokenizer.pad_token_id, chunk_len=64)
-
+        if row[0] == "Enchanted (Taylor's Version)":
+            enchantedTensors = chunks
         stackedChunks.append(chunks)
     
     # Stack the chunks into shape(#allchunks, chunk_len)
@@ -94,4 +145,7 @@ if __name__ == "__main__":
 
     # Checkpoint 2.1
     print("\nCheckpoint 2.1:")
-    
+    print(f"Chunked Tensors for \"Enchanted(Taylor's Version)\": {enchantedTensors}")
+
+
+    # Checkpoint 2.2

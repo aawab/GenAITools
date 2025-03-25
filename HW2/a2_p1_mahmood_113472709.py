@@ -17,8 +17,8 @@ import matplotlib
 class TrigramLM:
     def __init__(self):
         self.totalTokens=0
-        self.vocab=set()
-
+        self.vocab = GPT2TokenizerFast.get_vocab(GPT2TokenizerFast.from_pretrained('gpt2')).keys()
+        
         self.unigramCounts=collections.defaultdict(int)
         self.bigramCounts=collections.defaultdict(int)
         self.trigramCounts=collections.defaultdict(int)
@@ -28,13 +28,13 @@ class TrigramLM:
 
         # Count unigrams, bigrams, and trigrams for all docs
         for doc in datasets:
+            doc = doc  # Add start and end tokens
             self.totalTokens += len(doc)
 
             # Count unigrams
             for i in range(len(doc)):
                 token = doc[i]
                 self.unigramCounts[token] += 1
-                self.vocab.add(token)
             
             # Count bigrams
             for i in range(len(doc)-1):
@@ -141,7 +141,7 @@ if __name__ == "__main__":
 
     # Initialize the TrigramLM
     trigramLM = TrigramLM()
-    trigramLM.train([gpt2Tokenizer.tokenize(row[2]) for row in data])
+    trigramLM.train([gpt2Tokenizer.tokenize('<s>'+row[2]+'</s>') for row in data])
 
     history_toks=['<s>', 'Are', 'Ġwe']
     next_toks=['Ġout', 'Ġin', 'Ġto', 'Ġpretending', 'Ġonly']
@@ -187,4 +187,5 @@ if __name__ == "__main__":
         print(f"Perplexity: {perplexity:.5f}")
 
         # TODO: write/print 2-4 line observations about results, why similar or diff, one reason for it?
-        
+        # TODO: figure out if u need to use the tokenizer's built in vocab or not(OOV needs to be counted if so, and change ur code for tht)
+        # TODO: make usre to append <s> and </s> to the start and end of the case respectively
