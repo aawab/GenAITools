@@ -104,7 +104,7 @@ def trainLM(model, data, pad_token_id, learning_rate, device):
 
     #output: losses - a list of loss values on the train data from each epoch
 
-
+    
 
    return losses
 
@@ -200,7 +200,7 @@ if __name__ == "__main__":
     losses = trainLM(model, dataset,gpt2Tokenizer.pad_token_id, 0.0007, device)
 
     # Plot loss curves
-
+    # TODO: IMPLEMENT TRAINLM AND USE IT HERE ALONGSIDE SETTING UP PLOT LOSS CURVES AND THE REST
     # Use get_perplexity from checkpoint 1.3 to calculate perplexity of the model on below samples
 
     samples = ["And you gotta live with the bad blood now",

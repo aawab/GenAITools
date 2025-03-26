@@ -187,5 +187,4 @@ if __name__ == "__main__":
         print(f"Perplexity: {perplexity:.5f}")
 
         # TODO: write/print 2-4 line observations about results, why similar or diff, one reason for it?
-        # TODO: figure out if u need to use the tokenizer's built in vocab or not(OOV needs to be counted if so, and change ur code for tht)
         # TODO: make usre to append <s> and </s> to the start and end of the case respectively
