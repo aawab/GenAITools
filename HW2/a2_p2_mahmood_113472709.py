@@ -194,7 +194,7 @@ if __name__ == "__main__":
     vocab_size = GPT2TokenizerFast.get_vocab(gpt2Tokenizer).keys()
     embed_dim = 64
     rnn_hidden_dim = 1024
-    model = RecurrentLM(vocab_size=vocab_size, embed_dim=embed_dim, rnn_hidden_dim=rnn_hidden_dim)
+    model = RecurrentLM(vocab_size=len(vocab_size), embed_dim=embed_dim, rnn_hidden_dim=rnn_hidden_dim)
 
     # Train LM
     losses = trainLM(model, dataset,gpt2Tokenizer.pad_token_id, 0.0007, device)
