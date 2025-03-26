@@ -12,7 +12,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score
 
 import heapq
-import matplotlib
+import matplotlib.pyplot as plt
 
 # Checkpoint 2.1
 def chunk_tokens(tokens, start_token_id, end_token_id, pad_token_id, chunk_len=128):
@@ -104,9 +104,51 @@ def trainLM(model, data, pad_token_id, learning_rate, device):
 
     #output: losses - a list of loss values on the train data from each epoch
 
-    
+    model = model.to(device)
 
-   return losses
+    # ignore the pad tokens by ID and then continue with the training
+
+    criterion = nn.CrossEntropyLoss(ignore_index=pad_token_id)
+
+    # use mini batch gradient descent with Adam optimizer
+
+    optimizer = torch.optim.Adam(model.parameters(),lr=learning_rate)
+
+    # train for 15 epochs
+
+    losses = []
+
+    for epoch in range(15):
+        model.train()
+        epochLoss = 0.0
+        batches = 0
+
+        for Xbatch, ybatch in data:
+            Xbatch, ybatch = Xbatch.to(device), ybatch.to(device)
+
+            # Forward pass
+            logits, _ = model(Xbatch)
+
+            # convert logits and labels(ybatch) to (#examples, #classes) to use nn.crossentropyloss
+            _, _, vocab_size = logits.shape
+            logits = logits.reshape(-1, vocab_size)
+            ybatch = ybatch.reshape(-1)
+
+            # CrossEntropyloSs
+            loss = criterion(logits, ybatch)
+
+            # Backward pass and optimization
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+
+            epochLoss += loss.item()
+            batches += 1
+
+        avgLoss = epochLoss/batches
+        losses.append(avgLoss)
+
+    return losses
 
 # Checkpoint 2.4
 def generate(model, tokenizer, start_phrase, max_len, device):
@@ -127,7 +169,38 @@ def generate(model, tokenizer, start_phrase, max_len, device):
 
    return generated_tokens
 
+# From Part 1 Checkpoint 1.3
+def get_perplexity(probs):
+
+    #input: probs: a list containing probabilities of the target token for each index of input
+
+    #output: perplexity: a single float number
+
+    n = len(probs)
+    if n==0 :
+        return float('inf')
+    
+    # Calculate perplexity as inverse of geo mean over the probs
+    geoMean = 1
+    for prob in probs:
+        geoMean *= prob
+    perplexity = (1 / geoMean)**(1/n)
+
+    return perplexity
+
 if __name__ == "__main__":
+
+    if len(sys.argv) != 2:
+        print("Usage: python a2_p2_mahmood_113472709.py <filename>")
+        sys.exit(1)
+    
+    # Grab input file and read in the data
+    file = sys.argv[1]
+
+    # Load the data
+    with open(file, newline='') as f:
+        reader = csv.reader(f)
+        data = list(reader)[1:-5]
 
     # Initialize GPT2Tokenizer
     gpt2Tokenizer = GPT2TokenizerFast.from_pretrained('gpt2')
@@ -140,11 +213,6 @@ if __name__ == "__main__":
     # TODO: doesn't work??? Check if GPU is available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
-
-    # Load the data
-    with open('songs.csv', newline='') as f:
-        reader = csv.reader(f)
-        data = list(reader)[1:-5]
 
     # Var to hold checkpoint 2.1 song(ENchanted) chunked tensors
     enchantedTensors = None
@@ -187,7 +255,6 @@ if __name__ == "__main__":
     print(f"logits shape: (batch_size, seq_len, vocab_size)")
     print(f"hidden_state shape: (1, batch_size, rnn_hidden_dim)")
     
-
     # Checkpoint 2.3
 
     # Initialzie RecurrentLM
@@ -197,10 +264,18 @@ if __name__ == "__main__":
     model = RecurrentLM(vocab_size=len(vocab_size), embed_dim=embed_dim, rnn_hidden_dim=rnn_hidden_dim)
 
     # Train LM
-    losses = trainLM(model, dataset,gpt2Tokenizer.pad_token_id, 0.0007, device)
+    losses = trainLM(model, dataloader,gpt2Tokenizer.pad_token_id, 0.0007, device)
 
     # Plot loss curves
-    # TODO: IMPLEMENT TRAINLM AND USE IT HERE ALONGSIDE SETTING UP PLOT LOSS CURVES AND THE REST
+    plt.figure(figsize=(12, 8))
+    plt.plot(range(1, len(losses) + 1), losses, marker='o')
+    plt.title('Training Set Loss Curves')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.grid(True)
+    plt.savefig('loss_curve.pdf')
+    plt.close()
+
     # Use get_perplexity from checkpoint 1.3 to calculate perplexity of the model on below samples
 
     samples = ["And you gotta live with the bad blood now",
@@ -209,7 +284,20 @@ if __name__ == "__main__":
     "You make me crazier, crazier, crazier, oh",
     "When time stood still and I had you"]
 
-    # Print perplexities and compare with results from 1.3. how does RNN LM perform compared to TrigramLM? Why?
+    model.eval()
+    for sample in samples:
+        tokens = gpt2Tokenizer.encode(sample)
+        chunks = chunk_tokens(tokens, gpt2Tokenizer.bos_token_id, gpt2Tokenizer.eos_token_id, gpt2Tokenizer.pad_token_id, chunk_len=64)
 
+        probs = []
+        history = []
+        for chunk in chunks:
+            X = chunk.unsqueeze(0)
+            logits, _ = model(X)
+            probs.append(F.softmax(logits, dim=-1).detach().numpy().squeeze())
+
+        perplexity = get_perplexity(probs)
+        print(f"Perplexity for \"{sample}\": {perplex
+    # Print perplexities and compare with results from 1.3. how does RNN LM perform compared to TrigramLM? Why?
 
     # Checkpoint 2.4

@@ -104,6 +104,18 @@ def get_perplexity(probs):
 
 if __name__ == "__main__":
 
+    if len(sys.argv) != 2:
+        print("Usage: python a2_p1_mahmood_113472709.py <filename>")
+        sys.exit(1)
+    
+    # Grab input file and read in the data
+    file = sys.argv[1]
+
+    # Load the data
+    with open(file, newline='') as f:
+        reader = csv.reader(f)
+        data = list(reader)[1:-5]
+    
     # Initialize GPT2Tokenizer
     gpt2Tokenizer = GPT2TokenizerFast.from_pretrained('gpt2')
 
@@ -112,11 +124,6 @@ if __name__ == "__main__":
     gpt2Tokenizer.bos_token = "<s>"
     gpt2Tokenizer.eos_token = "</s>"
 
-    # Load the data
-    with open('songs.csv', newline='') as f:
-        reader = csv.reader(f)
-        data = list(reader)[1:-5]
-    
     # Checkpoint 1.1
 
     print("\nCheckpoint 1.1:")
