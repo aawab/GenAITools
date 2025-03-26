@@ -1,6 +1,6 @@
 import random, os, sys, math, csv, re, collections, string
 import numpy as np
-import csv #(in-built and lightweight!)
+import csv
 import torch
 from torch import nn, Tensor
 from torch.utils.data import DataLoader, TensorDataset
@@ -89,7 +89,43 @@ class RecurrentLM(nn.Module):
 
         #return logits, hidden_state
 
+# Checkpoint 2.3
+def trainLM(model, data, pad_token_id, learning_rate, device):
 
+    #input: model - instance of RecurrentLM to be trained
+
+    #       data - contains X and y as defined in 2.1
+
+    #       pad_token_id - tokenizer’s pad token ID for filtering out pad tokens
+
+    #       learning_rate
+
+    #       device - whether to train model on CPU (="cpu") or GPU (="cuda")
+
+    #output: losses - a list of loss values on the train data from each epoch
+
+
+
+   return losses
+
+# Checkpoint 2.4
+def generate(model, tokenizer, start_phrase, max_len, device):
+
+    #input: model - trained instance of RecurrentLM
+
+    #       tokenizer
+
+    #       start_phrase - string containing input word(s)
+
+    #       max_len - max number of tokens to generate
+
+    #       device - whether to inference model on CPU (="cpu") or GPU (="cuda")
+
+    #output: generated_tokens - list of generated token IDs
+
+
+
+   return generated_tokens
 
 if __name__ == "__main__":
 
@@ -147,5 +183,33 @@ if __name__ == "__main__":
     print("\nCheckpoint 2.1:")
     print(f"Chunked Tensors for \"Enchanted(Taylor's Version)\": {enchantedTensors}")
 
-
     # Checkpoint 2.2
+    print(f"logits shape: (batch_size, seq_len, vocab_size)")
+    print(f"hidden_state shape: (1, batch_size, rnn_hidden_dim)")
+    
+
+    # Checkpoint 2.3
+
+    # Initialzie RecurrentLM
+    vocab_size = GPT2TokenizerFast.get_vocab(gpt2Tokenizer).keys()
+    embed_dim = 64
+    rnn_hidden_dim = 1024
+    model = RecurrentLM(vocab_size=vocab_size, embed_dim=embed_dim, rnn_hidden_dim=rnn_hidden_dim)
+
+    # Train LM
+    losses = trainLM(model, dataset,gpt2Tokenizer.pad_token_id, 0.0007, device)
+
+    # Plot loss curves
+
+    # Use get_perplexity from checkpoint 1.3 to calculate perplexity of the model on below samples
+
+    samples = ["And you gotta live with the bad blood now",
+    "Sit quiet by my side in the shade",
+    "And I'm not even sorry, nights are so starry",
+    "You make me crazier, crazier, crazier, oh",
+    "When time stood still and I had you"]
+
+    # Print perplexities and compare with results from 1.3. how does RNN LM perform compared to TrigramLM? Why?
+
+
+    # Checkpoint 2.4
