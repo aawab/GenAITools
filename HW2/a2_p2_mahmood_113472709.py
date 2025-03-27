@@ -210,7 +210,6 @@ if __name__ == "__main__":
     gpt2Tokenizer.bos_token = "<s>"
     gpt2Tokenizer.eos_token = "</s>"
 
-    # TODO: doesn't work??? Check if GPU is available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
 
@@ -286,18 +285,27 @@ if __name__ == "__main__":
 
     model.eval()
     for sample in samples:
+        # Tokenize text
         tokens = gpt2Tokenizer.encode(sample)
-        chunks = chunk_tokens(tokens, gpt2Tokenizer.bos_token_id, gpt2Tokenizer.eos_token_id, gpt2Tokenizer.pad_token_id, chunk_len=64)
 
-        probs = []
-        history = []
-        for chunk in chunks:
-            X = chunk.unsqueeze(0)
-            logits, _ = model(X)
-            probs.append(F.softmax(logits, dim=-1).detach().numpy().squeeze())
+        # Prep input and target tensors
+        input_tensor = torch.tensor(tokens[:-1]).to(device)
+        target_tensor = torch.tensor(tokens[1:]).to(device)
 
-        perplexity = get_perplexity(probs)
-        print(f"Perplexity for \"{sample}\": {perplex
-    # Print perplexities and compare with results from 1.3. how does RNN LM perform compared to TrigramLM? Why?
+        # Get model preds
+        with torch.no_grad():
+            logits, _ = model(input_tensor)
+
+        # Get probs
+        probs = torch.softmax(logits, dim=-1)
+
+        target_probs = []
+        for i in range(target_tensor.shape[0]):
+            # Get the probability of the target token at each position
+            target_probs.append(probs[i, target_tensor[i]].item())
+        # Print perplexity for the sample
+        perplexity = get_perplexity(target_probs)
+        print(f"Sample: \"{sample}\"")
+        print(f"Perplexity: {perplexity:.4f}\n")
 
     # Checkpoint 2.4

@@ -140,12 +140,6 @@ if __name__ == "__main__":
     # Checkpoint 1.2
     print("\nCheckpoint 1.2:")
 
-    # TODO:Q6. The transformer's tokenizer does not automatically add <s> and </s> before and after the document even if BOS and EOS tokens
-    #  are set, right? (Output at checkpoint 1.1 says that). In 1.2 we have to add them manually while passing to the tokenizer; is that 
-    # correct? (Confusion came to my mind from #55 where I saw: "(1379 > 1024)"; in my case, it is 1381 instead while passing BOS and EOS.)
-    # A6. Right, it doesn't automatically add it when you tokenize a sentence. In 1.2, yes, you need to add them manually when training 
-    # TrigramLM. Note - The checkpoint test cases in 1.2 and 1.3 can be processed as-is.
-
     # Initialize the TrigramLM
     trigramLM = TrigramLM()
     trigramLM.train([gpt2Tokenizer.tokenize('<s>'+row[2]+'</s>') for row in data])
@@ -192,6 +186,4 @@ if __name__ == "__main__":
         perplexity = get_perplexity(probs)
         print(f"Case: {' '.join(case)}")
         print(f"Perplexity: {perplexity:.5f}")
-
-        # TODO: write/print 2-4 line observations about results, why similar or diff, one reason for it?
-        # TODO: make usre to append <s> and </s> to the start and end of the case respectively
+    print("\nOBSERVATIONS:\nThe perplexity values here seem very high, but I'd say that's almost to be expected. Some of the tokens are rare, and the model is not trained on a large enough dataset to get a good estimate of the probabilities, nor is it a very intensive/thorough training method(trigram LM). Not only that, but the vocabulary of the tokenizer is extremely large and thus the individual probabilities of a next word occuring given history is very low, leading to larger perplexity values overall. Some sentences have higher perplexity because they use a more unorthodox sequence of words than the previous lyrics the trigramLM was trained on.") 
