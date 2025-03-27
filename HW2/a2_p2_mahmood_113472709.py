@@ -1,4 +1,5 @@
 import random, os, sys, math, csv, re, collections, string
+import token
 import numpy as np
 import csv
 import torch
@@ -79,7 +80,7 @@ class RecurrentLM(nn.Module):
 
         return logits, hidden_state
 
-   #def stepwise_forward(self, x, prev_hidden_state):
+    def stepwise_forward(self, x, prev_hidden_state):
 
         #input: x: tensor of shape (seq_len)
 
@@ -87,7 +88,19 @@ class RecurrentLM(nn.Module):
 
         #<FILL IN at Part 2.4>
 
-        #return logits, hidden_state
+        x = x.unsqueeze(0)
+
+        embedding = self.embed(x) 
+
+        output, hidden_state = self.gru(embedding, prev_hidden_state)
+
+        normalized = self.layer_norm(output)
+
+        logits = self.fc(normalized)
+
+        logits = logits.squeeze(0)
+
+        return logits, hidden_state
 
 # Checkpoint 2.3
 def trainLM(model, data, pad_token_id, learning_rate, device):
@@ -164,10 +177,46 @@ def generate(model, tokenizer, start_phrase, max_len, device):
     #       device - whether to inference model on CPU (="cpu") or GPU (="cuda")
 
     #output: generated_tokens - list of generated token IDs
-
-
-
-   return generated_tokens
+    # Set model to evaluation mode
+    model.eval()
+    
+    # Tokenize the start phrase
+    start_tokens = tokenizer.encode(start_phrase)
+    # Convert to tensor and move to device
+    input_tokens = torch.tensor([start_tokens]).to(device)
+    
+    # Use forward method to process initial tokens and get initial hidden state
+    with torch.no_grad():
+        logits, hidden_state = model(input_tokens)
+    
+    # Initialize generated tokens list with highest probability logit as next token
+    generated_tokens = [start_tokens[-1]]
+    
+    # Get the last token from the input
+    current_token = torch.tensor([start_tokens[-1]]).to(device)
+    
+    # Generate tokens until max_len or EOS/pad token
+    while len(generated_tokens) < max_len:
+        # Use stepwise_forward to generate next token
+        with torch.no_grad():
+            # Get logits for the current token
+            next_logits, hidden_state = model.stepwise_forward(current_token, hidden_state)
+            
+            # Pick token with highest probability (argmax)
+            next_token = torch.argmax(next_logits, dim=-1).item()
+        
+        # Append the token to generated tokens
+        generated_tokens.append(next_token)
+        
+        # Update current token for next iteration
+        current_token = torch.tensor([next_token]).to(device)
+        
+        # Stop if EOS or pad token is generated
+        if (next_token == tokenizer.eos_token_id or 
+            next_token == tokenizer.pad_token_id):
+            break
+    
+    return generated_tokens
 
 # From Part 1 Checkpoint 1.3
 def get_perplexity(probs):
@@ -251,11 +300,10 @@ if __name__ == "__main__":
     print(f"Chunked Tensors for \"Enchanted(Taylor's Version)\": {enchantedTensors}")
 
     # Checkpoint 2.2
+    print("\nCheckpoint 2.2:")
     print(f"logits shape: (batch_size, seq_len, vocab_size)")
     print(f"hidden_state shape: (1, batch_size, rnn_hidden_dim)")
     
-    # Checkpoint 2.3
-
     # Initialzie RecurrentLM
     vocab_size = GPT2TokenizerFast.get_vocab(gpt2Tokenizer).keys()
     embed_dim = 64
@@ -283,6 +331,9 @@ if __name__ == "__main__":
     "You make me crazier, crazier, crazier, oh",
     "When time stood still and I had you"]
 
+    # Checkpoint 2.3
+    print("\nCheckpoint 2.3:")
+
     model.eval()
     for sample in samples:
         # Tokenize text
@@ -307,5 +358,22 @@ if __name__ == "__main__":
         perplexity = get_perplexity(target_probs)
         print(f"Sample: \"{sample}\"")
         print(f"Perplexity: {perplexity:.4f}\n")
-
+    print("\nOBSERVATIONS:\nThe model here does indeed perform better than the TrigramLM from Part1, in terms of perplexity and different orders of magnitude depending on the sample. I believe it works better due to a much more thoroughly trained model than just a basic TrigramLM(which essentially just stores counts and guesses). The RNN LM has multiple separate stages, is trained multiple separate times, and optimizes based on loss(with batch gradient descent as we used here). This allows it to be much more accurate than before and as a result have a lower perplexity with the same samples(bar the G/space symbol of course).")
+    
     # Checkpoint 2.4
+    print("\nCheckpoint 2.4:")
+
+    startPhrases = [
+        "<s>Are we",
+        "<s>Like we're made of starlight, starlight",
+        "<s>Why can't I"  
+    ]
+
+    for phrase in startPhrases:
+        generated_tokens = generate(model, gpt2Tokenizer, phrase, 64, device)
+        
+        # Decode the generated tokens to string
+        generated_text = gpt2Tokenizer.decode(generated_tokens, skip_special_tokens=True)
+
+        # Print the generated text
+        print(f"Start phrase \"{phrase}\":\n{generated_text}\n")

@@ -1,45 +1,130 @@
-Checkpoint 1.1:
-first: ['He', 'Ġsaid', 'Ġthe', 'Ġway', 'Ġmy', 'Ġblue', 'Ġeyes', 'Ġsh', 'ined', 'Ċ', 'Put', 'Ġthose', 'ĠGeorgia', 'Ġstars', 'Ġto', 'Ġshame', 'Ġthat', 'Ġnight', 'Ċ', 'I', 'Ġsaid', ',', 'Ġ"', 'That', "'s", 'Ġa', 'Ġlie', '"', 'Ċ', 'Just', 'Ġa', 'Ġboy', 'Ġin', 'Ġa', 'ĠChevy', 'Ġtruck', 'Ċ', 'That', 'Ġhad', 'Ġa', 'Ġtendency', 'Ġof', 'Ġget', 'tin', "'", 'Ġstuck', 'Ċ', 'On', 'Ġback', 'roads', 'Ġat', 'Ġnight', 'Ċ', 'Ċ', '[', 'Pre', '-', 'Ch', 'orus', ']', 'Ċ', 'And', 'ĠI', 'Ġwas', 'Ġright', 'Ġthere', 'Ġbeside', 'Ġhim', 'Ġall', 'Ġsummer', 'Ġlong', 'Ċ', 'And', 'Ġthen', 'Ġthe', 'Ġtime', 'Ġwe', 'Ġwoke', 'Ġup', 'Ġto', 'Ġfind', 'Ġthat', 'Ġsummer', 'Ġgone', 'Ċ', 'Ċ', '[', 'Ch', 'orus', ']', 'Ċ', 'But', 'Ġwhen', 'Ġyou', 'Ġthink', 'ĠTim', 'ĠMcG', 'raw', 'Ċ', 'I', 'Ġhope', 'Ġyou', 'Ġthink', 'Ġmy', 'Ġfavorite', 'Ġsong', 'Ċ', 'The', 'Ġone', 'Ġwe', 'Ġdanced', 'Ġto', 'Ġall', 'Ġnight', 'Ġlong', 'Ċ', 'The', 'Ġmoon', 'Ġlike', 'Ġa', 'Ġspotlight', 'Ġon', 'Ġthe', 'Ġlake', 'Ċ', 'When', 'Ġyou', 'Ġthink', 'Ġhappiness', 'Ċ', 'I', 'Ġhope', 'Ġyou', 'Ġthink', 'Ġthat', 'Ġlittle', 'Ġblack', 'Ġdress', 'Ċ', 'Think', 'Ġof', 'Ġmy', 'Ġhead', 'Ġon', 'Ġyour', 'Ġchest', 'Ċ', 'And', 'Ġmy', 'Ġold', 'Ġfaded', 'Ġblue', 'Ġjeans', 'Ċ', 'When', 'Ġyou', 'Ġthink', 'ĠTim', 'ĠMcG', 'raw', 'Ċ', 'I', 'Ġhope', 'Ġyou', 
-'Ġthink', 'Ġof', 'Ġme', 'Ċ', 'Ċ', '[', 'Ver', 'se', 'Ġ2', ']', 'Ċ', 'September', 'Ġsaw', 'Ġa', 'Ġmonth', 'Ġof', 'Ġtears', 'Ċ', 'And', 'Ġthan', 'kin', "'", 'ĠGod', 'Ġthat', 'Ġyou', 'Ġweren', "'t", 'Ġhere', 'Ċ', 'To', 'Ġsee', 'Ġme', 'Ġlike', 'Ġthat', 'Ċ', 'But', 'Ġin', 'Ġa', 'Ġbox', 'Ġbeneath', 'Ġmy', 'Ġbed', 'Ċ', 'Is', 
-'Ġa', 'Ġletter', 'Ġthat', 'Ġyou', 'Ġnever', 'Ġread', 'Ċ', 'From', 'Ġthree', 'Ġsummers', 'Ġback', 'Ċ', 'Ċ', '[', 'Pre', '-', 'Ch', 'orus', ']', 'Ċ', 'It', "'s", 
-'Ġhard', 'Ġnot', 'Ġto', 'Ġfind', 'Ġit', 'Ġall', 'Ġa', 'Ġlittle', 'Ġbitters', 'weet', 'Ċ', 'And', 'Ġlook', 'in', "'", 'Ġback', 'Ġon', 'Ġall', 'Ġof', 'Ġthat', ',', 'Ġit', "'s", 'Ġnice', 'Ġto', 'Ġbelieve', 'Ċ', 'Ċ', '[', 'Ch', 'orus', ']', 'Ċ', 'When', 'Ġyou', 'Ġthink', 'ĠTim', 'ĠMcG', 'raw', 'Ċ', 'I', 'Ġhope', 'Ġyou', 'Ġthink', 'Ġmy', 'Ġfavorite', 'Ġsong', 'Ċ', 'The', 'Ġone', 'Ġwe', 'Ġdanced', 'Ġto', 'Ġall', 'Ġnight', 'Ġlong', 'Ċ', 'The', 'Ġmoon', 'Ġlike', 'Ġa', 'Ġspotlight', 'Ġon', 'Ġthe', 'Ġlake', 'Ċ', 'When', 'Ġyou', 'Ġthink', 'Ġhappiness', 'Ċ', 'I', 'Ġhope', 'Ġyou', 'Ġthink', 'Ġthat', 'Ġlittle', 'Ġblack', 'Ġdress', 'Ċ', 'Think', 'Ġof', 'Ġmy', 'Ġhead', 'Ġon', 'Ġyour', 'Ġchest', 'Ċ', 'And', 'Ġmy', 'Ġold', 'Ġfaded', 'Ġblue', 'Ġjeans', 'Ċ', 'When', 'Ġyou', 'Ġthink', 'ĠTim', 'ĠMcG', 'raw', 'Ċ', 'I', 'Ġhope', 'Ġyou', 'Ġthink', 'Ġof', 'Ġme', 'Ċ', 'Ċ', '[', 'Bridge', ']', 'Ċ', 'And', 'ĠI', "'m", 'Ġback', 'Ġfor', 'Ġthe', 'Ġfirst', 'Ġtime', 'Ġsince', 'Ġthen', 'Ċ', 'I', "'m", 'Ġstand', 'in', "'", 'Ġon', 'Ġyour', 'Ġstreet', 'Ċ', 'And', 'Ġthere', "'s", 'Ġa', 'Ġletter', 'Ġleft', 'Ġon', 'Ġyour', 'Ġdoorstep', 'Ċ', 'And', 'Ġthe', 'Ġfirst', 'Ġthing', 'Ġthat', 'Ġyou', "'ll", 'Ġread', 'Ċ', 'Ċ', '[', 'Ch', 'orus', ']', 'Ċ', 'Is', ',', 'Ġ"', 'When', 'Ġyou', 'Ġthink', 'ĠTim', 'ĠMcG', 'raw', 'Ċ', 'I', 'Ġhope', 'Ġyou', 'Ġthink', 'Ġmy', 'Ġfavorite', 'Ġsong', 'Ċ', 'S', 'omed', 'ay', 'Ġyou', "'ll", 'Ġturn', 'Ġyour', 'Ġradio', 'Ġon', 'Ċ', 'I', 'Ġhope', 'Ġit', 'Ġtakes', 'Ġyou', 'Ġback', 'Ġto', 'Ġthat', 'Ġplace', '"', 'Ċ', 'When', 'Ġyou', 'Ġthink', 'Ġhappiness', 'Ċ', 'I', 'Ġhope', 'Ġyou', 'Ġthink', 'Ġthat', 'Ġlittle', 'Ġblack', 'Ġdress', 'Ċ', 'Think', 'Ġof', 'Ġmy', 'Ġhead', 'Ġon', 'Ġyour', 'Ġchest', 'Ċ', 'And', 'Ġmy', 'Ġold', 'Ġfaded', 'Ġblue', 'Ġjeans', 'Ċ', 'When', 'Ġyou', 'Ġthink', 'ĠTim', 'ĠMcG', 'raw', 'Ċ', 'I', 'Ġhope', 'Ġyou', 'Ġthink', 'Ġof', 'Ġme', 'Ċ', '[', 'Out', 'ro', ']', 'Ċ', 'Oh', ',', 'Ġthink', 'Ġof', 'Ġme', ',', 'Ġm', 'mm', 'Ċ', 'He', 'Ġsaid', 'Ġthe', 'Ġway', 'Ġmy', 'Ġblue', 'Ġeyes', 'Ġsh', 'ined', 'Ċ', 'Put', 'Ġthose', 'ĠGeorgia', 'Ġstars', 'Ġto', 'Ġshame', 'Ġthat', 'Ġnight', 'Ċ', 'I', 'Ġsaid', ',', 'Ġ"', 'That', "'s", 'Ġa', 'Ġlie', '"']
-last: ['Bet', 'Ġyour', 'Ġwindow', "'s", 'Ġrolled', 'Ġdown', 'Ġand', 'Ġyour', 'Ġhair', "'s", 'Ġpulled', 'Ġback', 'Ċ', 'And', 'ĠI', 'Ġbet', 'Ġyou', 'Ġgot', 'Ġno', 'Ġidea', 'Ġyou', "'re", 'Ġgoing', 'Ġway', 'Ġtoo', 'Ġfast', 'Ċ', 'You', "'re", 'Ġtrying', 'Ġnot', 'Ġto', 'Ġthink', 'Ġabout', 'Ġwhat', 'Ġwent', 'Ġwrong', 'Ċ', 'T', 'rying', 'Ġnot', 'Ġto', 'Ġstop', "Ġ'", 'til', 'Ġyou', 'Ġget', 'Ġwhere', 'Ġyou', 'Ġgo', 'in', "'", 'Ċ', 'You', "'re", 'Ġtrying', 'Ġto', 'Ġstay', 'Ġawake', 'Ġso', 'ĠI', 'Ġbet', 'Ġyou', 'Ġturn', 'Ġon', 'Ġthe', 'Ġradio', 'Ċ', 'And', 'Ġthe', 'Ġsong', 'Ġgoes', 'Ċ', 'Ċ', '[', 'Pre', '-', 'Ch', 'orus', ':', 'ĠTaylor', 'ĠSwift', ']', 'Ċ', 'I', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'ĠI', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'Ġbaby', 'Ċ', 'I', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'ĠI', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'Ġbaby', ',', 'Ġoh', ',', 'Ġbaby', 'Ċ', 'Ċ', '[', 'Ch', 'orus', ':', 'ĠTim', 
-'ĠMcG', 'raw', ']', 'Ċ', 'The', 'Ġhighway', 'Ġwon', "'t", 'Ġhold', 'Ġyou', 'Ġtonight', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġknow', 'Ġyou', "'re", 'Ġalive', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ġif', 'Ġyou', "'re", 'Ġall', 'Ġalone', 'Ċ', 'But', 'ĠI', 'Ġdo', ',', 'ĠI', 'Ġdo', 'Ċ', 'The', 'Ġhighway', 'Ġwon', "'t", 'Ġdry', 'Ġyour', 'Ġtears', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġneed', 'Ġyou', 'Ġhere', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ġif', 'Ġyou', 
-"'re", 'Ġcoming', 'Ġhome', 'Ċ', 'But', 'ĠI', 'Ġdo', ',', 'ĠI', 'Ġdo', 'Ċ', 'Ċ', '[', 'Ver', 'se', 'Ġ2', ':', 'ĠTim', 'ĠMcG', 'raw', 'Ġ&', 'ĠTaylor', 'ĠSwift', ']', 'Ċ', 'I', 'Ġbet', 'Ġyou', 'Ġgot', 'Ġa', 'Ġdead', 'Ġcell', 'Ġphone', 'Ġin', 'Ġyour', 'Ġshotgun', 'Ġseat', 'Ċ', 'Yeah', ',', 'ĠI', 'Ġbet', 'Ġyou', "'re", 'Ġbending', 'ĠGod', "'s", 'Ġear', 'Ġtalking', "Ġ'", 'b', 'out', 'Ġme', 'Ċ', 'You', "'re", 'Ġtrying', 'Ġnot', 'Ġto', 'Ġlet', 'Ġthe', 'Ġfirst', 'Ġtear', 'Ġfall', 'Ġout', 'Ċ', 'You', "'re", 'Ġtrying', 'Ġnot', 'Ġto', 'Ġthink', 'Ġabout', 'Ġturning', 'Ġaround', 'Ċ', 'You', "'re", 'Ġtrying', 'Ġnot', 'Ġto', 'Ġget', 'Ġlost', 'Ġin', 'Ġthe', 'Ġsound', 'Ġbut', 'Ġthat', 'Ġsong', 'Ġis', 'Ġalways', 'Ġon', 'Ċ', 'So', 'Ġyou', 'Ġsing', 'Ġalong', 'Ċ', 'Ċ', '[', 'Pre', '-', 'Ch', 'orus', ':', 'ĠTaylor', 'ĠSwift', ']', 'Ċ', 'I', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'ĠI', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'Ġbaby', 'Ċ', 'I', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'ĠI', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'Ġbaby', ',', 'Ġoh', 'Ġbaby', 'Ċ', 'Ċ', '[', 'Ch', 'orus', ':', 'ĠTim', 'ĠMcG', 'raw', ']', 'Ċ', 'The', 'Ġhighway', 'Ġwon', "'t", 'Ġhold', 'Ġyou', 'Ġtonight', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġknow', 'Ġyou', "'re", 'Ġalive', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ġif', 'Ġyou', "'re", 'Ġall', 'Ġalone', 'Ċ', 'But', 'ĠI', 'Ġdo', ',', 'ĠI', 'Ġdo', 'Ċ', 'The', 'Ġhighway', 'Ġwon', "'t", 'Ġdry', 'Ġyour', 'Ġtears', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġneed', 'Ġyou', 'Ġhere', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ġif', 'Ġyou', "'re", 'Ġcoming', 'Ġhome', 'Ċ', 'But', 'ĠI', 'Ġdo', ',', 'ĠI', 'Ġdo', 'Ċ', 'Ċ', '[', 'Pre', '-', 'Ch', 'orus', ':', 'ĠTaylor', 'ĠSwift', ']', 'Ċ', 'I', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'ĠI', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'Ġbaby', 'Ċ', 'I', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'ĠI', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'Ġbaby', ',', 'Ġoh', 'Ġbaby', 'Ċ', 'Ċ', '[', 'Bridge', ':', 'ĠTim', 'ĠMcG', 'raw', 'Ġ&', 'ĠTaylor', 
-'ĠSwift', ']', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ċ', 'But', 'ĠI', 'Ġdo', ',', 'ĠI', 'Ġdo', 'Ċ', 'I', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'ĠI', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'Ġbaby', 
-'Ċ', 'I', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'ĠI', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'Ġbaby', ',', 'Ġoh', 'Ġbaby', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ċ', 'But', 'ĠI', 'Ġdo', ',', 'ĠI', 'Ġdo', 'Ċ', 'I', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'ĠI', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'Ġbaby', 'Ċ', 'I', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'ĠI', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'Ġbaby', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ċ', 'But', 'ĠI', 'Ġdo', ',', 'ĠI', 'Ġdo', 'Ċ', 'I', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'ĠI', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'Ġbaby', 'Ċ', 'I', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'ĠI', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'Ġbaby', ',', 
-'Ġoh', 'Ġbaby', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ċ', 'The', 'Ġhighway', 'Ġdon', "'t", 'Ġcare', 'Ċ', 'But', 'ĠI', 'Ġdo', ',', 'ĠI', 'Ġdo', 'Ċ', '[', 'Out', 'ro', ':', 'ĠTaylor', 'ĠSwift', ']', 'Ċ', 'I', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'ĠI', 'Ġcan', "'t", 'Ġlive', 'Ġwithout', 'Ġyou', ',', 'Ġbaby']
+Token indices sequence length is longer than the specified maximum sequence length for this model (1311 > 1024). Running this sequence through the model will result in indexing errors
 
-Checkpoint 1.2:
-Token indices sequence length is longer than the specified maximum sequence length for this model (1385 > 1024). Running this sequence through the model will result in indexing errors
+Using device: cuda
 
-history: ['<OOV>', 'Are', 'Ġwe']
-        Ġout: 0.00042
-        Ġin: 0.00038
-        Ġto: 0.00002
-        Ġpretending: 0.00002
-        Ġonly: 0.00004
+Checkpoint 2.1:
+Chunked Tensors for "Enchanted(Taylor's Version)": tensor([[50256,  1858,   314,   373,   757,  9975,   198,  1890,  2259, 20263,
+            11,   277,   868, 21845,   198, 30556,  1468, 10032,    11, 21757,
+          1295,   198,    54,  5691,   286,  1035, 40310,   198,  2484, 13309,
+          2951,   290, 39836,   198, 25298,  1348,   618,   314,  2497,   534,
+          1986,   198,  3237,   314,   460,   910,   318,   340,   373, 23260,
+           278,   284,  1826,   345,   198,   198,  7120,  2951, 25029,    11,
+           366, 11980,   356, 50256],
+        [50256,  1138,  1701,   198, 40553,   262,  2119,    11,   534, 41834,
+           198,  1273,  5889,   284,   787,   663,   835,   284,   502,   198,
+           464, 34264,  5273,  4940,   198, 31694,   477,   534,  2068, 10252,
+           198,  7594,  6427,  4710,   287, 22780,   198,  1870,   340,   373,
+         23260,   278,   284,  1826,   345,   198,  3237,   314,   460,   910,
+           318,   314,   373, 42282,   284,  1826,   345,   198,   198,  1212,
+          1755,   318,  9009, 50256],
+        [50256,  2815,  3256,   836,   470,   345,  1309,   340,   467,   198,
+            40,  1101,  4240, 19554,   694,    11, 37854,   259,     6,   477,
+           262,   835,  1363,   198,    40,  1183,  4341,  8097,  4240,   259,
+             6,   611,   345,  2993,   198,    40,   373, 42282,   284,  1826,
+           345,   198,   198,   464, 28528,  1808,  4030,   502,   510,   198,
+            17,   257,    13,    76,  1539,   508,   466,   345,  1842,    30,
+           198,    40,  4240, 50256],
+        [50256,   705, 47163,   314,  1101,  3094, 21693,   198,  1870,   783,
+            11,   314,  1101, 37572,   736,   290,  6071,   198,    54,  3929,
+           345,   547,   379,   616,  3420,   198,    40,  1549,  1280,   510,
+           290,   345,   561,   910,   198,     1, 10814,    11,   340,   373,
+         23260,   278,   284,  1826,   345,     1,   198,  3237,   314,   760,
+           318,   314,   373, 42282,   284,  1826,   345,   198,   198,  1212,
+          1755,   318,  9009, 50256],
+        [50256,  2815,  3256,   836,   470,   345,  1309,   340,   467,   198,
+            40,  1101,  4240, 19554,   694,    11, 37854,   259,     6,   477,
+           262,   835,  1363,   198,    40,  1183,  4341,  8097,  4240,   259,
+             6,   611,   345,  2993,   198,  1212,  1755,   318, 38870,    11,
+           836,   470,   345,  1309,   340,   467,   198,    40,  1101,  4240,
+         19554,   694,    11, 15360,  1088,   477,  3436,   198,    40,  1183,
+          4341,  8097,  4240, 50256],
+        [50256,   259,     6,   611,   345,  2993,   198,    40,   373, 42282,
+           284,  1826,   345,   198,   198,  1212,   318,   502, 26002,   326,
+           198,  1212,   373,   262,   845,   717,  2443,   198,  3673,   810,
+           262, 22992,  5645,   198,  3666,  6066,   481,  9809,   534,  1438,
+           198, 18273,   314,   766,   345,   757,   198,  4711,   389,   262,
+          2456,   314,  2714,   736,   198,  1722,   314,   373,  4305,  1165,
+          2582,   198,    40, 50256],
+        [50256,   373, 42282,   284,  1826,   345,   198,  5492,    11,   836,
+           470,   307,   287,  1842,   351,  2130,  2073,   198,  5492,    11,
+           836,   470,   423,  8276,  4043,   259,     6,   319,   345,   198,
+          5492,    11,   836,   470,   307,   287,  1842,   351,  2130,  2073,
+           357,    46,  1219,     8,   198,  5492,    11,   836,   470,   423,
+          8276,  4043,   259,     6,   319,   345,   357,  5812,    12,  1219,
+             8,   198,   198, 50256],
+        [50256,  1212,  1755,   318,  9009,  2815,  3256,   836,   470,   345,
+          1309,   340,   467,   198,    40,  1101,  4240, 19554,   694,    11,
+         37854,   259,     6,   477,   262,   835,  1363,   198,    40,  1183,
+          4341,  8097,  4240,   259,     6,   611,   345,  2993,   198,  1212,
+          1755,   318, 38870,   357,  5492,    11,   836,   470,   307,   287,
+          1842,   351,  2130,  2073,     8,   198,  3987,   470,   345,  1309,
+           340,   467,   198, 50256],
+        [50256,    40,  1101,  4240, 19554,   694,   357,  5492,    11,   836,
+           470,   423,  8276,  4043,   259,     6,   319,   345,     8,   198,
+            35,  5077,  1088,   477,  3436,   198,    40,  1183,  4341,  8097,
+           357,  5492,    11,   836,   470,   307,   287,  1842,   351,  2130,
+          2073,     8,   198, 42337,   259,     6,   611,   345,  2993,   198,
+            40,   373, 42282,   284,  1826,   345,   198,  5492,    11,   836,
+           470,   307,   287, 50256],
+        [50256,  1842,   351,  2130,  2073,   198,  5492,    11,   836,   470,
+           423,  8276,  4043,   259,     6,   319,   345, 50256, 50256, 50256,
+         50256, 50256, 50256, 50256, 50256, 50256, 50256, 50256, 50256, 50256,
+         50256, 50256, 50256, 50256, 50256, 50256, 50256, 50256, 50256, 50256,
+         50256, 50256, 50256, 50256, 50256, 50256, 50256, 50256, 50256, 50256,
+         50256, 50256, 50256, 50256, 50256, 50256, 50256, 50256, 50256, 50256,
+         50256, 50256, 50256, 50256]])
 
-history: ['And', 'ĠI']
-        Ġwas: 0.00020
-        'm: 0.00081
-        Ġstood: 0.00004
-        Ġknow: 0.00036
-        Ġscream: 0.00006
-        Ġpromise: 0.00010
+Checkpoint 2.2:
+logits shape: (batch_size, seq_len, vocab_size)
+hidden_state shape: (1, batch_size, rnn_hidden_dim)
 
-Checkpoint 1.3:
-Case: And Ġyou Ġgotta Ġlive Ġwith Ġthe Ġbad Ġblood Ġnow
-Perplexity: 10672.32773
-Case: Sit Ġquiet Ġby Ġmy Ġside Ġin Ġthe Ġshade
-Perplexity: 30650.43627
-Case: And ĠI 'm Ġnot Ġeven Ġsorry , Ġnights Ġare Ġso Ġstar ry
-Perplexity: 8946.30341
-Case: You Ġmake Ġme Ġcraz ier , Ġcraz ier , Ġcraz ier , Ġoh
-Perplexity: 22617.29850
-Case: When Ġtime Ġstood Ġstill Ġand ĠI Ġhad Ġyou
-Perplexity: 12483.32687
+Checkpoint 2.3:
+Sample: "And you gotta live with the bad blood now"
+Perplexity: 7060.6399
+
+Sample: "Sit quiet by my side in the shade"
+Perplexity: 810.5219
+
+Sample: "And I'm not even sorry, nights are so starry"
+Perplexity: 1226.1163
+
+Sample: "You make me crazier, crazier, crazier, oh"
+Perplexity: 1061.5495
+
+Sample: "When time stood still and I had you"
+Perplexity: 11244.2291
+
 
 OBSERVATIONS:
-The perplexity values here seem very high, but I'd say that's almost to be expected. Some of the tokens are rare, and the model is not trained on a large enough dataset to get a good estimate of the probabilities, nor is it a very intensive/thorough training method(trigram LM). Not only that, but the vocabulary of the 
-tokenizer is extremely large and thus the individual probabilities of a next word occuring given history is very low, leading to larger perplexity values overall. Some sentences have higher perplexity because they use a more unorthodox sequence of words than the previous lyrics the trigramLM was trained on.
+The model here does indeed perform better than the TrigramLM from Part1, in terms of perplexity and different orders of magnitude depending on the sample. I believe it works better due to a much more thoroughly trained model than just a basic TrigramLM(which essentially just stores counts and guesses). The RNN LM has multiple separate stages, is trained multiple separate times, and optimizes based on loss(with batch gradient descent as we used here). This allows it to be much more accurate than before and as a result have a lower perplexity with the same samples(bar the G/space symbol of course).
+
+Checkpoint 2.4:
+Start phrase "<s>Are we":
+ we out of the woods yet? Are we out of the woods yet?
+Are we out of the woods yet? Are we out of the woods yet?
+Are we out of the woods yet? Are we out of the woods yet?
+Are we out of the woods yet? Are we out of the woods
+
+Start phrase "<s>Like we're made of starlight, starlight":
+light
+
+"I want you, bless my soul (He got my heartbeat)
+I want you, bless my (Skipping down 16th Avenue, baby)
+I want you, bless my soul (He got my heartbeat)
+I want you, bless my (Skipping down 16th Avenue
+
+Start phrase "<s>Why can't I":
+ I showed
+The highway don't care only you
+But I don't know
+
+You're not sorry
+No, no, no
+
+You're not sorry
+No, no, no
+
+No, no, no, no
+No, no, no
+No, no, no
+No,
