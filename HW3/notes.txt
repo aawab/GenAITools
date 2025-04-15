@@ -1,0 +1,24 @@
+Hi all, hope you're doing well. I'm sharing a couple of points to help you get your implementation < 12min requirements on T4 GPU.
+
+In part 1 and 2, the main factors impacting finetuning/inference duration are data precision, batch size, and hyperparameters.
+
+1. Make sure you're using fp16 when performing forward pass:
+with torch.amp.autocast(device_type='cuda', dtype=torch.float16):
+    outputs = model(...)
+
+Using fp16 rather than fp32 reduces memory requirement and allows you to pass a larger batch size, consequently decreasing the count of 
+forward/backward calls.
+
+2. If you've padded each sentence to the maximum sequence length of the dataset, then for each batch, trim it down to the max seq length of 
+that batch.
+
+3. Use the hyperparameters that are "good enough" for the task. If your models achieve metrics above the suggested values, then you're all 
+set. Refer to your loss plots and use only as many epochs as necessary. For reference, the hyperparameters I've used for benchmarking (but 
+not the best ones) were:
+- Batch size 8 for BoolQ and 16 for SST
+- LR = 1e-5
+- L2 = 1e-3
+- num epochs = 1 should be good enough.
+
+With this, instruction tuning in 1.2 took roughly 3mins/epoch, finetuning in 1.4, 2.2 ~ 1min 10sec/epoch and in 2.4 ~ 30sec. If your timing 
+is way off than these, then something's likely incorrect. Feel free to make a private post so we can take a look at it.
