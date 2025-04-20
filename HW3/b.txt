@@ -1,0 +1,14 @@
+Checkpoint 2.2
+distilRB-rand: overall acc: 0.378, f1: 0.274
+distilroberta: overall acc: 0.658, f1: 0.599
+distilRB-KQV: overall acc: 0.643, f1: 0.533
+distilRB-nores: overall acc: 0.632, f1: 0.543
+
+Checkpoint 2.3
+Validation: mae: 0.120, r: 0.811
+Test: mae: 0.114, r: 0.842
+
+SST test set:
+distilRB-rand: mae: 0.393, r: -0.077
+distilRB-KQV: mae: 0.112, r: 0.826
+distilRB-nores: mae: 0.121, r: 0.820

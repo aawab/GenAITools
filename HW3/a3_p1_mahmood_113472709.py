@@ -1,14 +1,13 @@
 import numpy as np
-import torch
-
 import sklearn.metrics
+
 import tqdm
+import torch
 
 import matplotlib.pyplot as plt
 from datasets import load_dataset
-from transformers import GPT2Tokenizer, GPT2LMHeadModel
+from transformers import GPT2Tokenizer, GPT2LMHeadModel,RobertaTokenizer, RobertaForSequenceClassification
 from torch.utils.data import DataLoader
-from transformers import RobertaTokenizer, RobertaForSequenceClassification, get_linear_schedule_with_warmup
 
 # Parts I and II
 boolq_dataset = load_dataset('google/boolq')
@@ -19,8 +18,8 @@ def printMetrics(preds, trueLabels):
     f1 = sklearn.metrics.f1_score(trueLabels, preds, average='macro')
 
     # Class specific metruics
-    classPrec = sklearn.metrics.precision_score(trueLabels, preds, average=None)
     classRec = sklearn.metrics.recall_score(trueLabels, preds, average=None)
+    classPrec = sklearn.metrics.precision_score(trueLabels, preds, average=None)
     classF1 = sklearn.metrics.f1_score(trueLabels, preds, average=None)
 
     # Print metrics
