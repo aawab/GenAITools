@@ -61,10 +61,10 @@ def initGPT2Loader(dataset, tokenizer, batch_size=8, shuffle=True):
         processed.append(prepGPT2Input(dataset[i], tokenizer))
     
     # Pad per max seq length in batch instead of max seq length in dataset everytime - TA
-    def collate_fn(batch):
+    def collate(batch):
         batchLen = max(item["input_ids"].size(0) for item in batch)
-        
         collated = {}
+
         for key in batch[0].keys():
             if key in ["input_ids", "attention_mask", "labels"]:
                 paddedTensors = []
@@ -85,10 +85,8 @@ def initGPT2Loader(dataset, tokenizer, batch_size=8, shuffle=True):
                         paddedTensors.append(tensor)
                 
                 collated[key] = torch.stack(paddedTensors)
-        
         return collated
-    
-    return DataLoader(processed, batch_size=batch_size, shuffle=shuffle, collate_fn=collate_fn)
+    return DataLoader(processed, batch_size=batch_size, shuffle=shuffle, collate_fn=collate)
 
 def prepRobertaInput(item, tokenizer, max_length=512):
     passage = item['passage']
@@ -119,9 +117,9 @@ def initRobertaLoader(dataset, tokenizer, batch_size=16, shuffle=True):
     attMasks = torch.stack(attMasks)
     labels = torch.tensor(labels)
     
-    tensor_dataset = torch.utils.data.TensorDataset(inputIDs, attMasks, labels)
+    dataset = torch.utils.data.TensorDataset(inputIDs, attMasks, labels)
     
-    return DataLoader(tensor_dataset, batch_size=batch_size, shuffle=shuffle)
+    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
 
 
 # ------------Part 1.1------------------

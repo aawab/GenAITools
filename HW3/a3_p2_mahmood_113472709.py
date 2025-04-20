@@ -331,7 +331,7 @@ def eval_roberta_classifier(model, test_loader, device='cuda'):
 
 ################  Part 2.3  ################
 
-def finetune_roberta_regressor(model, train_loader, num_epochs=3, lr=2e-5, weight_decay=1e-3, device='cuda'):
+def finetune_roberta_regressor(model, train_loader, num_epochs=1, lr=1e-5, weight_decay=1e-3, device='cuda'):
     model.to(device)
     model.train()
     
