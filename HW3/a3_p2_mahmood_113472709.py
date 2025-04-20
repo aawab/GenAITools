@@ -4,7 +4,6 @@ import torch.nn as nn
 import sklearn.metrics
 import tqdm
 import matplotlib.pyplot as plt
-from scipy.stats import pearsonr
 from datasets import load_dataset
 from transformers import RobertaTokenizer, RobertaModel, RobertaForSequenceClassification, AutoModelForSequenceClassification
 from transformers import get_linear_schedule_with_warmup
