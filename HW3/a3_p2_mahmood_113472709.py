@@ -230,9 +230,8 @@ def convertRBNores(model):
 def getModel(variant='distilroberta', task='classifier'):
     if task == 'classifier':
         model = RobertaForSequenceClassification.from_pretrained("distilroberta-base", num_labels=2)
-    else:
-        baseModel = RobertaModel.from_pretrained("distilroberta-base")
-        model = RobertaForRegression(baseModel)
+    else:  # regression task
+        model = RobertaForSequenceClassification.from_pretrained("distilroberta-base", num_labels=1,problem_type="regression")
     
     if variant == 'distilRB-rand':
         model = convertRBRand(model)
@@ -242,7 +241,6 @@ def getModel(variant='distilroberta', task='classifier'):
         model = convertRBNores(model)
     
     return model
-
 
 # ------------Part 2.2 and 2.3------------------
 
@@ -266,21 +264,24 @@ def finetuneRoberta(model, train_loader, num_epochs=1, lr=1e-5, weight_decay=1e-
             # Move batch to device
             inputIDs = inputIDs.to(device)
             attMask = attMask.to(device)
+            labels = labels.to(device)
+            
+            # For regression tasks, reshape labels to match model output
             if regression:
-                labels = labels.float().to(device)
-            else:
-                labels = labels.to(device)
+                labels = labels.float().view(-1, 1)
 
             optimizer.zero_grad()
             
             # Forward pass
             with torch.amp.autocast(device_type='cuda', dtype=torch.float16):
-                if regression:
-                    outputs = model(input_ids=inputIDs, attention_mask=attMask)
-                    loss = nn.MSELoss()(outputs, labels)
-                else:
-                    outputs = model(input_ids=inputIDs, attention_mask=attMask, labels=labels)
-                    loss = outputs.loss
+                # Using the built-in loss computation for both classification and regression
+                outputs = model(
+                    input_ids=inputIDs, 
+                    attention_mask=attMask, 
+                    labels=labels
+                )
+                
+                loss = outputs.loss
             
             # Backward pass
             loss.backward()
@@ -332,10 +333,11 @@ def evalRobertaRegressor(model, test_loader, device='cuda'):
             # Forward pass
             outputs = model(input_ids=inputIDs, attention_mask=attMask)
             
-            preds.extend(outputs.cpu().numpy())
+            predictions = outputs.logits.squeeze(-1)
+            
+            preds.extend(predictions.cpu().numpy())
             trueLabels.extend(labels.numpy())
     
-    # Calculate metrics
     preds = np.array(preds)
     trueLabels = np.array(trueLabels)
     
