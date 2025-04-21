@@ -126,35 +126,6 @@ def initRobertaRegressionLoader(dataset, tokenizer, batch_size=16, shuffle=True)
 
 # ------------Part 2.1------------------
 
-class RobertaRegressionHead(nn.Module):
-    def __init__(self, config):
-        super().__init__()
-        self.dense = nn.Linear(config.hidden_size, config.hidden_size)
-        self.dropout = nn.Dropout(config.hidden_dropout_prob)
-        self.out_proj = nn.Linear(config.hidden_size, 1)
-
-    def forward(self, features, **kwargs):
-        x = features[:, 0, :]
-        x = self.dropout(x)
-        x = self.dense(x)
-        x = torch.tanh(x)
-        x = self.dropout(x)
-        x = self.out_proj(x)
-        return x
-
-class RobertaForRegression(nn.Module):
-    def __init__(self, roberta_model):
-        super().__init__()
-        self.roberta = roberta_model
-        self.config = self.roberta.config
-        self.regression_head = RobertaRegressionHead(self.config)
-        
-    def forward(self, input_ids=None, attention_mask=None, **kwargs):
-        outputs = self.roberta(input_ids=input_ids, attention_mask=attention_mask)
-        sequence_output = outputs[0]
-        logits = self.regression_head(sequence_output)
-        return logits.squeeze(-1)
-
 def convertRBRand(model):
     def randWeights(module):
         if isinstance(module, nn.Linear):
@@ -261,12 +232,11 @@ def finetuneRoberta(model, train_loader, num_epochs=1, lr=1e-5, weight_decay=1e-
     
     for _ in range(num_epochs):
         for inputIDs, attMask, labels in tqdm.tqdm(train_loader):
-            # Move batch to device
+            # Move batch
             inputIDs = inputIDs.to(device)
             attMask = attMask.to(device)
             labels = labels.to(device)
             
-            # For regression tasks, reshape labels to match model output
             if regression:
                 labels = labels.float().view(-1, 1)
 
@@ -274,13 +244,7 @@ def finetuneRoberta(model, train_loader, num_epochs=1, lr=1e-5, weight_decay=1e-
             
             # Forward pass
             with torch.amp.autocast(device_type='cuda', dtype=torch.float16):
-                # Using the built-in loss computation for both classification and regression
-                outputs = model(
-                    input_ids=inputIDs, 
-                    attention_mask=attMask, 
-                    labels=labels
-                )
-                
+                outputs = model(input_ids=inputIDs, attention_mask=attMask, labels=labels)
                 loss = outputs.loss
             
             # Backward pass
