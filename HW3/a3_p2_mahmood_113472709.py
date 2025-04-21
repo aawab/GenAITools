@@ -201,7 +201,7 @@ def convertRBNores(model):
 def getModel(variant='distilroberta', task='classifier'):
     if task == 'classifier':
         model = RobertaForSequenceClassification.from_pretrained("distilroberta-base", num_labels=2)
-    else:  # regression task
+    else: 
         model = RobertaForSequenceClassification.from_pretrained("distilroberta-base", num_labels=1,problem_type="regression")
     
     if variant == 'distilRB-rand':
@@ -311,6 +311,7 @@ def evalRobertaRegressor(model, test_loader, device='cuda'):
     return mae, r
 
 if __name__ == '__main__':
+    torch.cuda.empty_cache()
     # Set device
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     

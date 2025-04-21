@@ -54,6 +54,7 @@ def generate_response(model, tokenizer, query, ret_context):
     return output[0]['generated_text'].strip()
 
 if __name__ == "__main__":
+    torch.cuda.empty_cache()
     squad = load_dataset("squad")
     model = SentenceTransformer("all-MiniLM-L6-v2")
     queries, contexts, answers = get_unique_ctx_examples(squad)
