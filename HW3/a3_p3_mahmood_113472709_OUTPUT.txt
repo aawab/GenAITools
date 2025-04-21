@@ -1,0 +1,85 @@
+Checkpoint 3.1
+Retrieval Accuracy: 321/500
+
+Checkpoint 3.2
+
+CORRECT Example #0
+Query: Which NFL team represented the AFC at Super Bowl 50?
+Retrieved Context: Super Bowl 50 was an American football game to determine the champion of the National Football League (NFL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Football Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on February 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Super Bowl, the league emphasized the "golden anniversary" with various gold-themed initiatives, as well as temporarily suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been known as "Super Bowl L"), so that the logo could prominently feature the Arabic numerals 50.
+LM-Generated Response: The Denver Broncos represented the AFC at Super Bowl 50.
+Actual Answer: Denver Broncos
+
+----------------------------------------
+
+CORRECT Example #4
+Query: Who was the NFL Commissioner in early 2012?
+Retrieved Context: In early 2012, NFL Commissioner Roger Goodell stated that the league planned to make the 50th Super Bowl "spectacular" and that it would be "an important game for us as a league".
+LM-Generated Response: Roger Goodell was the NFL Commissioner in early 2012.
+Actual Answer: Roger Goodell
+
+----------------------------------------
+
+CORRECT Example #7
+Query: When was Levi's Stadium awarded the right to host Super Bowl 50?
+Retrieved Context: On May 21, 2013, NFL owners at their spring meetings in Boston voted and awarded the game to Levi's Stadium. The $1.2 billion stadium opened in 2014. It is the first Super Bowl held in the San Francisco Bay Area since Super Bowl XIX in 1985, and the first in California since Super Bowl XXXVII took place in San Diego in 2003.
+LM-Generated Response: Levi's Stadium was awarded the right to host Super Bowl 50 on May 21, 2013.
+Actual Answer: May 21, 2013
+
+----------------------------------------
+
+CORRECT Example #13
+Query: What was Peyton Manning's passer rating for the season?
+Retrieved Context: Manning finished the year with a career-low 67.9 passer rating, throwing for 2,249 yards and nine touchdowns, with 17 interceptions. In contrast, Osweiler threw for 1,967 yards, 10 touchdowns and six interceptions for a rating of 86.4. Veteran receiver Demaryius Thomas led the team with 105 receptions for 1,304 yards and six touchdowns, while Emmanuel Sanders caught 76 passes for 1,135 yards and six scores, while adding another 106 yards returning punts. Tight end Owen Daniels was also a big element of the passing game with 46 receptions for 517 yards. Running back C. J. Anderson was the team's leading rusher 863 yards and seven touchdowns, while also catching 25 passes for 183 yards. Running back Ronnie Hillman also made a big impact with 720 yards, five touchdowns, 24 receptions, and a 4.7 yards per carry average. Overall, the offense ranked 19th in scoring with 355 points and did not have any Pro Bowl selections.
+LM-Generated Response: Peyton Manning finished the year with a career-low 67.9 passer rating.
+Actual Answer: 67.9
+
+----------------------------------------
+
+CORRECT Example #15
+Query: Who lost to the Panthers in the divisional round of the playoffs?
+Retrieved Context: The Panthers beat the Seattle Seahawks in the divisional round, running up a 31–0 halftime lead and then holding off a furious second half comeback attempt to win 31–24, avenging their elimination from a year earlier. The Panthers then blew out the Arizona Cardinals in the NFC Championship Game, 49–15, racking up 487 yards and forcing seven turnovers.
+LM-Generated Response: The Seattle Seahawks lost to the Panthers in the divisional round of the playoffs.
+Actual Answer: Seattle Seahawks
+
+----------------------------------------
+
+INCORRECT Example #1
+Query: Which Carolina Panthers player was named Most Valuable Player?
+Retrieved Context: Despite waiving longtime running back DeAngelo Williams and losing top wide receiver Kelvin Benjamin to a torn ACL in the preseason, the Carolina Panthers had their best regular season in franchise history, becoming the seventh team to win at least 15 regular season games since the league expanded to a 16-game schedule in 1978. Carolina started the season 14–0, not only setting franchise records for the best start and the longest single-season winning streak, but also posting the best start to a season by an NFC team in NFL history, breaking the 13–0 record previously shared with the 2009 New Orleans Saints and the 2011 Green Bay Packers. With their NFC-best 15–1 regular season record, the Panthers clinched home-field advantage throughout the NFC playoffs for the first time in franchise history. Ten players were selected to the Pro Bowl (the most in franchise history) along with eight All-Pro selections.
+LM-Generated Response: The context does not provide information on which Carolina Panthers player was named Most Valuable Player.
+Actual Answer: Cam Newton
+
+----------------------------------------
+
+INCORRECT Example #2
+Query: Who was the Super Bowl 50 MVP?
+Retrieved Context: In honor of the 50th Super Bowl, the pregame ceremony featured the on-field introduction of 39 of the 43 previous Super Bowl Most Valuable Players. Bart Starr (MVP of Super Bowls I and II) and Chuck Howley (MVP of Super Bowl V) appeared via video, while Peyton Manning (MVP of Super Bowl XLI and current Broncos quarterback) was shown in the locker room preparing for the game. No plans were announced regarding the recognition of Harvey Martin, co-MVP of Super Bowl XII, who died in 2001.
+LM-Generated Response: The Super Bowl 50 MVP was Von Miller.
+Actual Answer: Von Miller
+
+----------------------------------------
+
+INCORRECT Example #3
+Query: Which network broadcasted Super Bowl 50 in the U.S.?
+Retrieved Context: In the United States, the game was televised by CBS, as part of a cycle between the three main broadcast television partners of the NFL. The network's lead broadcast team of Jim Nantz and Phil Simms called the contest, with Tracy Wolfson and Evan Washburn on the sidelines. CBS introduced new features during the telecast, including pylon cameras and microphones along with EyeVision 360—an array of 36 cameras along the upper deck that can be used to provide a 360-degree view of plays and "bullet time" effects. (An earlier version of EyeVision was last used in Super Bowl XXXV; for Super Bowl 50, the cameras were upgraded to 5K resolution.)
+LM-Generated Response: CBS
+Actual Answer: CBS
+
+----------------------------------------
+
+INCORRECT Example #5
+Query: Which Louisiana venue was one of three considered for Super Bowl 50?
+Retrieved Context: Super Bowl 50 was an American football game to determine the champion of the National Football League (NFL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Football Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on February 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Super Bowl, the league emphasized the "golden anniversary" with various gold-themed initiatives, as well as temporarily suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been known as "Super Bowl L"), so that the logo could prominently feature the Arabic numerals 50.
+LM-Generated Response: The Mercedes-Benz Superdome in New Orleans, Louisiana, was one of the three venues considered for Super Bowl 50.
+Actual Answer: New Orleans' Mercedes-Benz Superdome
+
+----------------------------------------
+
+INCORRECT Example #6
+Query: When were the two finalists for hosting Super Bowl 50 announced?
+Retrieved Context: Super Bowl 50 was an American football game to determine the champion of the National Football League (NFL) for the 2015 season. The American Football Conference (AFC) champion Denver Broncos defeated the National Football Conference (NFC) champion Carolina Panthers 24–10 to earn their third Super Bowl title. The game was played on February 7, 2016, at Levi's Stadium in the San Francisco Bay Area at Santa Clara, California. As this was the 50th Super Bowl, the league emphasized the "golden anniversary" with various gold-themed initiatives, as well as temporarily suspending the tradition of naming each Super Bowl game with Roman numerals (under which the game would have been known as "Super Bowl L"), so that the logo could prominently feature the Arabic numerals 50.
+LM-Generated Response: The context does not provide information on when the two finalists for hosting Super Bowl 50 were announced.
+Actual Answer: October 16, 2012
+
+----------------------------------------
+
